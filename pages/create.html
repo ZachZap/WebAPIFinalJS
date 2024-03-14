@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Game Entry Page</title>
+    <title>Create Player Data Page</title>
 </head>
 <body>
-    <h1>Add your game entries here.</h1>
+    <h1>Add your player data here.</h1>
     <form action="/saveGame" method="post">
-        <label for="gamename">Enter Game Title here.</label>
-        <input type="text" name="gamename" id="GameTitle" placeholder="Enter Game Name Here...">
+        <label for="userName">Enter Username here.</label>
+        <input type="text" name="userName" id="Username" placeholder="Enter Username Here...">
         <br>
-        <label for="gamestudio">Enter Game Studio here.</label>
-        <input type="text" name="gamestudio" id="GameStudio" placeholder="Enter name of Game Studio here...">
+        <label for="firstName">Enter First Name here.</label>
+        <input type="text" name="firstName" id="Firstname" placeholder="Enter First Name Here...">
+        <br>
+        <label for="lastName">Enter Last Name here.</label>
+        <input type="text" name="lastName" id="Lastname" placeholder="Enter Last Name Here...">
+        <br>
+        <label for="score">Enter Score here.</label>
+        <input type="text" name="score" id="Score" placeholder="Enter Score Here...">
+        <br>
+        <label for="wins">Enter Wins here.</label>
+        <input type="text" name="wins" id="Wins" placeholder="Enter Wins Here...">
         <br>
         <button type="submit">Save Game</button>
     </form>

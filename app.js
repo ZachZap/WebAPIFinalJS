@@ -45,9 +45,14 @@ app.get('/contact', function(req,res){
     res.sendFile(path.join(__dirname+"/pages/contact.html"));
 });
 
-app.get('/games', function(req,res){ 
+app.get('/players', function(req,res){ 
     //res.send("here would be the page from the route");
-    res.sendFile(path.join(__dirname+"/pages/games.html"));
+    res.sendFile(path.join(__dirname+"/pages/players.html"));
+});
+
+app.get('/create', function(req,res){ 
+    //res.send("here would be the page from the route");
+    res.sendFile(path.join(__dirname+"/pages/create.html"));
 });
 
 app.get('/update', function(req,res){ 

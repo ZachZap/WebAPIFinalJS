@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games Page</title>
+    <title>Player Data Page</title>
 </head>
 <body>
     <div id="container">
-        <h1>Game List</h1>
+        <h1>Player Data List</h1>
         <script>
             fetch("/getdata").then(function(games){
                 games.json().then(function(theGames){
@@ -16,12 +16,15 @@
                     for(let game of theGames.games){
                         //Creates the elements and adds them to the page.
                         var gameElement = document.createElement('p');
-                        gameElement.innerHTML = game.gamename;
-                        gameElement.innerHTML += " by developer " + game.gamestudio + " &nbsp; &nbsp;";
+                        gameElement.innerHTML = "Username: " + game.userName + " | ";
+                        gameElement.innerHTML += "&nbsp;First name: " + game.firstName + " | ";
+                        gameElement.innerHTML += "&nbsp;Last name: " + game.lastName + " | ";
+                        gameElement.innerHTML += "&nbsp;Score: " + game.score + " | ";
+                        gameElement.innerHTML += "&nbsp;Wins: " + game.wins  + " | ";
                         document.getElementById('container').appendChild(gameElement);
 
                         var deleteButton = document.createElement('button');
-                        deleteButton.innerText = "Delete Game";
+                        deleteButton.innerText = "Delete Data";
                         deleteButton.addEventListener('click', function(){
                             console.log('deleted game');
                             //insert call to new route to delete the game.
@@ -38,13 +41,22 @@
                         gameElement.appendChild(deleteButton);
 
                         var updateButton = document.createElement('button');
-                        updateButton.innerText = "Update Game";
+                        updateButton.innerText = "Update Data";
                         updateButton.addEventListener('click', function(){
-                           window.location.replace('/update?id=' + game._id + '&name=' + game.gamename);
+                           window.location.replace('/update?id=' + game._id + '&username=' + game.userName);
                         })
 
                         gameElement.appendChild(updateButton);
                     }
+                    var gameElement = document.createElement('p');
+                    gameElement.innerHTML = "";
+                    document.getElementById('container').appendChild(gameElement);
+                    var createButton = document.createElement('button');
+                        createButton.innerText = "Create Data";
+                        createButton.addEventListener('click', function(){
+                           window.location.replace('/create');
+                        })
+                        gameElement.appendChild(createButton);
                 })
             })
         </script>

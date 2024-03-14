@@ -6,7 +6,7 @@ var dataToSend;
 //Sets up routes to Database Schema
 require('../models/GameData')
 require('../models/UnityGameData')
-var GameModel = mongoose.model("games");
+var GameModel = mongoose.model("unityplayers");
 var UnityModel = mongoose.model("unityplayers");
 
 //All CRUD operations
@@ -24,14 +24,14 @@ router.get('/getdata',(req,res)=>{
 router.post('/deletegame', function(req,res){
     console.log(req.body.game._id);
     GameModel.findByIdAndDelete(req.body.game._id).exec();
-    res.redirect('games.html');
+    res.redirect('players.html');
 })
 
 
 router.post('/updategame', function(req,res){
     console.log(req.body);
-    GameModel.findByIdAndUpdate(req.body.id,{gamename:req.body.game}).then(function(){
-        res.redirect('games.html');
+    GameModel.findByIdAndUpdate(req.body.id,{userName:req.body.userName, score:req.body.score, wins:req.body.wins, firstName:req.body.firstName, lastName:req.body.lastName}).then(function(){
+        res.redirect('players.html');
     });
 });
 
@@ -40,7 +40,7 @@ router.post('/saveGame', function(req,res){
     console.log(req.body);
     //saves data in database
     new GameModel(req.body).save().then(function(){
-        res.redirect('games.html');
+        res.redirect('players.html');
     });
 });
 
@@ -73,7 +73,7 @@ router.get('/getUnity', function(req,res){
 router.post('/updateUnity', function(req,res){
     console.log(req.body);
     dataToSend = req.body;
-    UnityModel.findByIdAndUpdate(dataToSend._id,{userName:req.body.userName, score:req.body.score, dateJoined:req.body.dateJoined, firstName:req.body.firstName, lastName:req.body.lastName}).then(function(){
+    UnityModel.findByIdAndUpdate(dataToSend._id,{userName:req.body.userName, score:req.body.score, wins:req.body.wins, firstName:req.body.firstName, lastName:req.body.lastName}).then(function(){
         
     });
 });

@@ -4,11 +4,11 @@ var Schema = mongoose.Schema;
 var UnityGameData = new Schema({
     score:{
         type:Number,
-        required:true
+        required:false
     },
-    dateJoined:{
+    wins:{
         type:String,
-        required:true
+        required:false
     },
     firstName:{
         type:String,

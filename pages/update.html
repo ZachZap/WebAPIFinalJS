@@ -9,19 +9,36 @@
 <body>
     <h1>Update Page</h1>
     <form action="/updategame" method="POST">
-        <label for="name">Game Name goes here</label>
+        <label for="name">Username goes here</label>
         <br>
         <input type="text" name="id" id="id" value="" hidden>
-        <input type="text" name="game" id="name" value="" placeholder="Enter game name here..">
+
+        <input type="text" name="userName" id="UserName" value="" placeholder="Enter username here..">
         <br>
-        <input type="submit" value="Update Game Name">
+        <label for="name">First name goes here</label>
+        <br>
+        <input type="text" name="firstName" id="FirstName" value="" placeholder="Enter first name here..">
+        <br>
+        <label for="name">Last name goes here</label>
+        <br>
+        <input type="text" name="lastName" id="LastName" value="" placeholder="Enter last name here..">
+        <br>
+        <label for="name">Score goes here</label>
+        <br>
+        <input type="text" name="score" id="Score" value="" placeholder="Enter score here..">
+        <br>
+        <label for="name">Wins go here</label>
+        <br>
+        <input type="text" name="wins" id="Wins" value="" placeholder="Enter wins here..">
+        <br>
+        <input type="submit" value="Update Player Data">
     </form>
     <script>
         var queryData = window.location.search;
         console.log(queryData);
         var entries = new URLSearchParams(queryData);
         document.getElementById("id").value = entries.get("id");
-        document.getElementById("name").innerText = entries.get("name");
+        document.getElementById("UserName").innerText = entries.get("userName");
     </script>
 </body>
 </html>
